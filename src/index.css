@@ -120,7 +120,7 @@ body.lock {
 .swiper-slide>section { height: 100vh; padding-top: 150px; padding-bottom: 100px;  }
 
 @media (max-width: 768px) {
-    .swiper-slide>section { margin-top: 101px; height: 89vh; }
+    .swiper-slide>section { margin-top: 101px; height: 89vh; padding-top: 0; padding-bottom: 0; }
 }
 
 

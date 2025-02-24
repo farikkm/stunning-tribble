@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "@/views/Home"
-import Header from "./components/Header"
+import Catalog from "./views/Catalog"
 
 function App() {
   return (
     <div className="wrapper">
-      <Header />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/catalog" element={<Catalog />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

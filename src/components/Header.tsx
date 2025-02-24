@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react"
 
-const Header = () => {
+const Header = ({ icons = 'normal' }: {icons?: string}) => {
     const modal = useRef<HTMLDivElement | null>(null)
     const searchInputRef = useRef<HTMLInputElement | null>(null)
     const [isShowModal, setIsShowModal] = useState<boolean>(false);
@@ -68,7 +68,7 @@ const Header = () => {
         <>
             {/* ======================================================= HEADER =======================================================*/}
 
-            <header className="header md:backdrop-blur-xs fixed top-0 left-0 z-5 w-full px-10 py-7 pb-0 bg-transparent">
+            <header className={`header backdrop-blur-xs fixed top-0 left-0 z-5 w-full px-10 py-7 pb-0 ${icons === 'white' ? 'bg-transparent' : 'bg-white'}`}>
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-10">
                         <div className="hidden md:flex gap-2 items-center *:cursor-pointer">
@@ -86,7 +86,7 @@ const Header = () => {
                                 onClick={openSearchInputRef}
                                 className="cursor-pointer h-8 md:h-6"
                             >
-                                {iconState ? <img className="h-full" src="/icons/searchWhite.svg" alt="search-icon" /> : <img className="h-full" src="/icons/search.svg" alt="search-icon" />}
+                                {iconState || icons === 'white' ? <img className="h-full" src="/icons/searchWhite.svg" alt="search-icon" /> : <img className="h-full" src="/icons/search.svg" alt="search-icon" />}
                             </motion.div>
                             <input ref={searchInputRef} type="text" className="w-0 opacity-0 p-2 border-b-2 outline-0 transition-all duration-300 ease-in-out focus:w-32 md:focus:w-48 focus:opacity-100" placeholder="Search..." />
                         </form>
@@ -99,7 +99,7 @@ const Header = () => {
                             exit={{ opacity: 0, scale: 0.8, rotate: 90 }}
                             transition={{ duration: 0.4, ease: "easeInOut" }}
                         >
-                            {iconState ? <img className="w-25" src="/headerLogoWhite.png" alt="header-logo" /> : <img src="/headerLogo.png" alt="header-logo" />}
+                            {iconState || icons === 'white' ? <img className="w-25" src="/headerLogoWhite.png" alt="header-logo" /> : <img src="/headerLogo.png" alt="header-logo" />}
                         </motion.div>
                     </a>
                     <div className="flex items-center gap-24">
@@ -119,7 +119,7 @@ const Header = () => {
                             onClick={openMenu}
                             className="cursor-pointer h-6 mt-2 p-1"
                         >
-                            {iconState ? <img src="/icons/menuWhite.svg" alt="menu-icon" /> : <img src="/icons/menu-icon.svg" alt="menu-icon" />}
+                            {iconState || icons === 'white' ? <img src="/icons/menuWhite.svg" alt="menu-icon" /> : <img src="/icons/menu-icon.svg" alt="menu-icon" />}
                         </motion.div>
                     </div>
                 </div>
